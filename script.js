@@ -182,3 +182,8 @@ backToTopBtn.addEventListener("click", () => {
 
 // searchInput.value = "Deep-Kacha";
 // searchUser();
+
+// Disable right click
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+});
