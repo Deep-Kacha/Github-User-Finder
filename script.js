@@ -77,28 +77,27 @@ function displayRepos(repos) {
     const updatedAt = formatDate(repo.updated_at);
 
     repoCard.innerHTML = `
-      <a href="${repo.html_url}" target="_blank" class="repo-name">
-        <i class="fas fa-code-branch"></i> ${repo.name}
+      <a href="${repo.html_url}" target="_blank" rel="noopener" class="repo-name">
+        <i class="fas fa-code-branch" aria-hidden="true"></i> ${repo.name}
       </a>
       <p class="repo-description">${repo.description || "No description available"}</p>
       <div class="repo-meta">
-        ${
-          repo.language
-            ? `
+        ${repo.language
+        ? `
           <div class="repo-meta-item">
-            <i class="fas fa-circle"></i> ${repo.language}
+            <i class="fas fa-circle" aria-hidden="true"></i> ${repo.language}
           </div>
         `
-            : ""
-        }
+        : ""
+      }
         <div class="repo-meta-item">
-          <i class="fas fa-star"></i> ${repo.stargazers_count}
+          <i class="fas fa-star" aria-hidden="true"></i> ${repo.stargazers_count}
         </div>
         <div class="repo-meta-item">
-          <i class="fas fa-code-fork"></i> ${repo.forks_count}
+          <i class="fas fa-code-fork" aria-hidden="true"></i> ${repo.forks_count}
         </div>
         <div class="repo-meta-item">
-          <i class="fas fa-history"></i> ${updatedAt}
+          <i class="fas fa-history" aria-hidden="true"></i> ${updatedAt}
         </div>
       </div>
     `;
@@ -109,6 +108,7 @@ function displayRepos(repos) {
 
 function displayUserData(user) {
   avatar.src = user.avatar_url;
+  avatar.alt = `${user.login}'s GitHub profile avatar`;
   nameElement.textContent = user.name || user.login;
   usernameElement.textContent = `@${user.login}`;
   bioElement.textContent = user.bio || "No bio available";
@@ -182,8 +182,3 @@ backToTopBtn.addEventListener("click", () => {
 
 // searchInput.value = "Deep-Kacha";
 // searchUser();
-
-// Disable right click
-document.addEventListener("contextmenu", function (e) {
-  e.preventDefault();
-});

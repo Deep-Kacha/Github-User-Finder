@@ -301,8 +301,8 @@ button:hover,
   border: 1px solid rgba(248, 81, 73, 0.4);
 }
 
-.loading-repos{
-    color: var(--text-gray);
+.loading-repos {
+  color: var(--text-gray);
   text-align: center;
   padding: 20px;
   grid-column: 1 / -1;
@@ -317,6 +317,96 @@ button:hover,
 
 .hidden {
   display: none;
+}
+
+/* Accessibility: visually hidden but screen-reader-visible label */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  margin-bottom: 20px;
+  font-size: 0.85rem;
+}
+
+.breadcrumb ol {
+  display: flex;
+  list-style: none;
+  gap: 6px;
+  color: var(--text-muted);
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: "/";
+  margin-left: 6px;
+  color: var(--text-muted);
+}
+
+.breadcrumb a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* SEO content sections below the tool */
+.info-section {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid var(--border-color);
+}
+
+.info-section h2 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: var(--text-primary);
+}
+
+.info-section p {
+  color: var(--text-secondary);
+  max-width: 70ch;
+}
+
+.info-section a {
+  color: var(--accent);
+}
+
+.steps-list {
+  color: var(--text-secondary);
+  padding-left: 22px;
+  max-width: 70ch;
+}
+
+.steps-list li {
+  margin-bottom: 8px;
+}
+
+/* FAQ */
+.faq-item {
+  margin-bottom: 20px;
+}
+
+.faq-item h3 {
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.faq-item p {
+  color: var(--text-secondary);
+  max-width: 70ch;
 }
 
 /* Responsive */
@@ -420,6 +510,20 @@ button:hover,
 #backToTop:hover {
   transform: translateY(-5px) scale(1.05);
 }
+
 #backToTop.show {
   display: block;
 }
+
+/* ─── Screen-reader only utility ───────────────────────────── */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
